@@ -45,15 +45,17 @@ class postController extends Controller
         $validated = $request->validate([
             'title' => ['required', 'min:5', 'max:255'],
             'content' => ['required', 'min:10'],
-            'thumbnail' => ['required', 'image'],
+            'thumbnail' => ['image'],
         ]);
-        $validated['thumbnail'] = $request->file('thumbnail')->store('thumbnail');
+        if($request->has('thumbnail')){
+            $validated['thumbnail'] = $request->file('thumbnail')->store('thumbnail');
+        }
         $validated['user_id'] = auth()->id();
         // auth()->user()->posts()->create($validated);
 
         Post::create($validated);
 
-        Mail::to(auth()->user()->email)->send(new PostMail(['title' => $validated['title'], 'content' => $validated['content'], 'thumbnail' => $validated['thumbnail']]));
+        Mail::to(auth()->user()->email)->send(new PostMail(['title' => $validated['title'], 'content' => $validated['content']]));
 
         return to_route('posts.index');
     }

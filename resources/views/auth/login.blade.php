@@ -35,6 +35,7 @@
                         </div>
                     </div>
                 </form>
+                <div>Don't have an account ? <a href="{{ route('register') }}" class="text-blue-600">Register</a></div>
             </div>
         </div>
     </x-layout>

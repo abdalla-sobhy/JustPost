@@ -24,14 +24,16 @@
                 </div>
             </div>
         </section>
-        <div class="max-w-6xl mx-auto sm:px-6 lg:px-8 bg-slate-50 rounded-lg">
-            <h1 class="text-3xl text-indigo-800 font-semibold">{{ $post->title }}</h1>
+        <div class="max-w-6xl mx-auto sm:px-6 lg:px-8 bg-slate-50 rounded-lg pt-6">
+            <h1 class="text-3xl text-indigo-800 font-semibold flex justify-center text-center">{{ $post->title }}</h1>
         <main class="mx-auto mt-6 lg:mt-20 space-y-6">
-            <p class="text-gray-700 p-4 mb-4"> {{ $post->content }} </p>
+            <p class="text-gray-700 p-4 mb-4 whitespace-pre-wrap"> {{ $post->content }} </p>
         </main>
+        @if ($post->thumbnail)
         <div class="firstImage flex justify-center w-full  pb-14">
             <img src="{{ asset($post->thumbnail) }}" alt="cant find the image"/>
         </div>
+        @endif
         </div>
     </x-layout>
 </body>
