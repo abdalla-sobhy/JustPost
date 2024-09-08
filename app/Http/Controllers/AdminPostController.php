@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Gate;
 
 class AdminPostController extends Controller
 {
@@ -17,6 +18,7 @@ class AdminPostController extends Controller
 
     public function update(Request $request, Post $post)
     {
+        Gate::authorize('update', $post);
         $validated = $request->validate([
             'title' => ['required', 'min:5', 'max:255'],
             'content' => ['required', 'min:10'],

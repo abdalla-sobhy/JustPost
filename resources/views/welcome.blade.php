@@ -32,7 +32,7 @@
                         <img src="{{ URL('/images/collage-modern-diverse-men-women-600nw-1728530761.webp') }}" alt="cant find the image">
                     </div>
                 </div>
-                <div class="mt-32 text-white font-bold text-4xl w-full flex justify-center">Welcome to JustPost!</div>
+                <div class="mt-32 text-white font-bold text-4xl w-full flex justify-center"><p>Welcome to<span class="text-orange-500"> JustPost!</span></p></div>
                 <div class="text-center mt-20 text-white font-bold text-3xl relative w-full flex justify-center"><p><span class="w-fit h-fit text-orange-500">JustPost </span>is a platform where you can freely express yourself and connect with others. <br> Whether you have a passion for writing, photography, or simply want to share your daily life, <br> we're here to provide a space for your voice.</p></div>
                 <div class="AllFeatures flex w-full mt-32 flex-col ml-40">
                     <div class="FeaturesWord text-white font-bold text-4xl">Features:</div>
