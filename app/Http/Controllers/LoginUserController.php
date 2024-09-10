@@ -21,7 +21,7 @@ class LoginUserController extends Controller
         // attempt to log the user in
 
         if(Auth::guard('web')->attempt(['email' => $request->email, 'password' => $request->password], $request->remember)){
-            return redirect()->intended(route('posts.index'));
+            return redirect()->intended(route('views.welcome'));
         }else{
             return back()->withErrors([
                 'email' => 'The provided credentials do not match our records',
@@ -35,7 +35,7 @@ class LoginUserController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return to_route('posts.index');
+        return to_route('views.welcome');
     }
 
 

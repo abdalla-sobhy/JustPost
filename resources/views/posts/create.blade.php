@@ -1,10 +1,11 @@
 <html lang="en">
 <head>
+    <link rel="icon" type="image/x-icon" href="{{ URL('/images/logo.jpeg') }}" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Posts</title>
 </head>
-<body class="flex flex-col w-full h-full">
+<body class="flex flex-col w-full h-full bg-slate-600">
     {{-- i can use the same component structure but with different content --}}
     <x-layout>
         <div class="w-full h-full flex justify-center items-center">

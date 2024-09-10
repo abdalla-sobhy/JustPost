@@ -36,7 +36,7 @@ class RegisterUserController extends Controller
         auth()->login($user);
 
         // redirect the user
-        return to_route('posts.index');
+        return to_route('views.welcome');
 
     }
 

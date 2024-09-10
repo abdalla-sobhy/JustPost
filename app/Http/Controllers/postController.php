@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\PostMail;
+use App\Models\Comment;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -63,14 +64,30 @@ class postController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(post $post)// $id
+    public function show(Post $post)// $id
     {
         //or fail gonna throw 404 not found page
         // $post = Post::findOrFail($id);
 
         //post $post insted of $id and laravel gonna do the previous line by him self
 
-        return view('posts.show', ['post' => $post]);
+        // $comments =  Comment::where('post_id', $post->id)->get();
+
+        // $commentUserName = User::where('id', $comments->user_id)->get();
+
+
+        // $post->load("comments");
+        // get all the comments published by  the user 2
+        // dd($post->comments()->where("comments.user_id", 2)->get()->toArray());
+        // get all the comments
+        // dd($post->comments);
+        // the line above is the same as this
+        // dd($post->comments()->get()->toArray());
+        // only get the comments made by the authenticated user
+        // dd($post->comments()->where("comments.user_id", auth()->user()->id)->get()->toArray());
+        $post->load(["comments", "comments.user"]);
+
+        return view('posts.show', ['post' => $post, 'comments' => $post->comments, 'commentUserName' => "$\commentUserName"]);
     }
 
     /**
